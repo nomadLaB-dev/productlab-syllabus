@@ -1,0 +1,174 @@
+---
+title: "第1回：環境とCLIの絶対作法"
+---
+
+import { Steps, Aside, Card, CardGrid } from '@astrojs/starlight/components';
+
+## 🌟 今日の目的
+PCをマウスではなく「言葉（コマンド）」で操る感覚を身につけ、開発に必要な「道具」を揃えます。
+
+---
+
+## 1. エンジニアの「調理場」を知ろう
+
+プログラムを動かすには、3つの役割を知る必要があります。
+
+<CardGrid>
+  <Card title="CPU（料理人）" icon="pencil">
+    計算をする人。君の命令を実際に実行します。
+  </Card>
+  <Card title="RAM（作業机）" icon="laptop">
+    作業スペース。16GB〜32GBあるから、大きな料理も楽勝！
+  </Card>
+  <Card title="SSD（冷蔵庫）" icon="setting">
+    データ（材料）を保存しておく場所。
+  </Card>
+</CardGrid>
+
+<Aside type="tip">
+  **なぜWSL2（Linux）を使うの？** 世界中のサーバー（本番の調理場）のほとんどがLinuxです。自分のPCの中にLinux環境を作ることで、プロと同じ環境で練習できるんだよ！
+</Aside>
+
+---
+
+## 2. ターミナルの基本呪文（UNIXコマンド）
+
+エンジニアが毎日使う、基本の道具たちです。
+
+| コマンド | 読み方 | 意味 |
+| :--- | :--- | :--- |
+| `pwd` | プリント・ワーキング・ディレクトリ | **現在地**を確認する |
+| `ls` | リスト | 中にある**ファイルやフォルダを見る** |
+| `cd [場所]` | チェンジ・ディレクトリ | 指定した**場所に移動する** |
+| `mkdir [名]` | メイク・ディレクトリ | 新しい**フォルダを作る** |
+| `touch [名]` | タッチ | 空の**ファイルを作る** |
+| `cp [元] [先]` | コピー | ファイルを**コピーする** |
+| `mv [元] [先]` | ムーブ | **移動** |
+| `rm [名]` | リムーブ | **削除する**（※ゴミ箱を通らず即消えるので注意！） |
+| `cat [名]` | キャット | ファイルの**中身を表示する** |
+| `clear` | クリア | ターミナルの表示を**掃除する** |
+
+---
+
+## 3. 【最重要】パス（住所）の書き方
+
+エンジニアにとって「住所」の伝え方は命です。
+
+### 🏠 絶対パス
+宇宙の根っこ（`/`）から見た完全な住所。
+例：`/home/user/projects`
+
+### 📍 相対パス
+「今いる場所」から見た相手の場所。
+- `.` ： 今の場所
+- `..` ： 一つ上の階（親フォルダ）
+
+<Aside type="caution">
+  **クイズ！** 今 `projects/app` にいます。一つ上の `projects` に戻るにはどう打つ？  
+  正解は：`cd ..`
+</Aside>
+
+---
+
+## 4. 【クエスト】手動でWebサイトの骨組みを作ろう！
+
+まずは、昔ながらのやり方でWebサイトのフォルダ構造を作ってみましょう。
+
+**課題：** `test-app` という名前のフォルダを作り、その中に以下の構造をコマンドだけで作成してください。
+
+- `index.html`
+- `/styles` フォルダ
+  - `master.css`
+- `/scripts` フォルダ
+  - `script.js`
+
+<Aside type="tip">
+  **ヒント：** 1. `mkdir test-app` → `cd test-app` 
+  2. `touch index.html`
+  3. `mkdir styles` → `touch styles/master.css`（相対パスが使えるかな？）
+</Aside>
+
+---
+
+## 5. 【魔法】Viteで一瞬で環境を作ろう
+
+手動でやるのは大変でしたよね？ 次は、プロが使う「**Vite（ヴィート）**」という道具を使って、モダンなWeb開発環境を一瞬で作ってみます。
+
+<Steps>
+1.  **Viteを起動する**
+    ```bash
+    pnpm create vite@latest
+    ```
+2.  **設定を選ぶ（AIとの対話だと思って！）**
+    - Project name: `my-vite-app`
+    - Select a framework: `React`
+    - Select a variant: `TypeScript`
+3.  **フォルダに入って中身を確認**
+    ```bash
+    cd my-vite-app
+    ls
+    ```
+</Steps>
+
+<Aside type="caution">
+  **見てみて！** 一瞬でたくさんのファイルができましたよね？ これが「モダン開発」のパワーです。
+  手動で作った `test-app` と何が違うか、みんなで探してみよう！
+</Aside>
+
+---
+
+## 6. 開発をスタートする（npm install と dev）
+
+Viteで作った直後のファイルは、まだ「部品」が足りません。ホームセンター（npm）から道具をダウンロードして、お店をオープンさせましょう。
+
+```bash
+pnpm install  # 必要な道具（node_modules）を全部ダウンロード！
+pnpm dev      # ローカルサーバーを起動！
+```
+
+---
+
+## 7. 道具を揃える「パッケージマネージャー」
+
+アプリをインストールする方法はいくつかあります。
+
+- **winget**: Windows用のアプリストア。
+- **apt**: Linux(WSL2)用のアプリストア。
+- **curl**: ネットから直接ファイルをダウンロードする魔法。
+
+### 管理者権限 `sudo`
+重要な設定を変える時は、コマンドの頭に `sudo` をつけます。
+> 例：`sudo apt update`（管理者としてアプリリストを更新して！）
+この際、パスワードの入力を要求されます。
+パスワードは打ち込んでも表示されませんが、内部的には打ち込まれているので安心してくださいね。
+
+---
+
+## 8. VoltaとNode.jsを入れよう
+
+Node.js（JavaScriptを動かすシェフ）を管理するために、**Volta** を使います。
+
+<Steps>
+1.  **Voltaのインストール（未導入の場合）**
+    ```bash
+    curl [https://get.volta.sh](https://get.volta.sh) | bash
+    ```
+2.  **Node.jsのインストール**
+    ```bash
+    volta install node@latest
+    ```
+3.  **バージョンの確認**
+    ```bash
+    node -v
+    ```
+    <Aside>
+      `node -v` と `node --version` は同じ意味だよ！ `-v` は短く打てる便利なニックネームなんだ。
+    </Aside>
+</Steps>
+
+---
+
+## 🚀 今週の宿題
+・Progateの Command Line 基礎編 を終わらせよう
+・Progateの Command Line VSCodeでターミナルを使おう をやってみよう
+（https://prog-8.com/docs/use-terminal-in-vscode）

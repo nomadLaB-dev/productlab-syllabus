@@ -1,40 +1,62 @@
 ---
-title: Welcome to Starlight
-description: Get started building your docs site with Starlight.
-template: splash # Remove or comment out this line to display the site sidebar on this page.
-hero:
-  tagline: Congrats on setting up a new Starlight project!
-  image:
-    file: ../../assets/houston.webp
-  actions:
-    - text: Example Guide
-      link: /guides/example/
-      icon: right-arrow
-    - text: Read the Starlight docs
-      link: https://starlight.astro.build
-      icon: external
-      variant: minimal
+title: 🚀 プロダクト開発 3ヶ月集中カリキュラム
+description: 未経験からAIを相棒にプロダクトをデリバリーするまでのロードマップ
 ---
 
-import { Card, CardGrid } from '@astrojs/starlight/components';
+import { Card, CardGrid, Steps, Aside } from '@astrojs/starlight/components';
 
-## Next steps
+このカリキュラムでは、単なるプログラミングスキルの習得だけでなく、**「AIを活用して、価値あるプロダクトを世に送り出す」**ための最短ルートを走ります。
 
-<CardGrid stagger>
-	<Card title="Update content" icon="pencil">
-		Edit `src/content/docs/index.mdx` to see this page change.
-	</Card>
-	<Card title="Change page layout" icon="document">
-		Delete `template: splash` in `src/content/docs/index.mdx` to display a
-		sidebar on this page.
-	</Card>
-	<Card title="Add new content" icon="add-document">
-		Add Markdown or MDX files to `src/content/docs` to create new pages.
-	</Card>
-	<Card title="Configure your site" icon="setting">
-		Edit your `sidebar` and other config in `astro.config.mjs`.
-	</Card>
-	<Card title="Read the docs" icon="open-book">
-		Learn more in [the Starlight Docs](https://starlight.astro.build/).
-	</Card>
-</CardGrid>
+<Aside type="tip">
+  **貞末からのメッセージ**
+  「わからないことはAIに聞こう！でも、"なぜ"そうなるのかを考える癖をつけよう✨」
+</Aside>
+
+---
+
+## 🗓️ 1ヶ月目：エンジニアの基礎体力を一気に作る
+**テーマ：環境を支配し、Webの構造を理解する**
+
+| 回 | テーマ | 内容 | ゴール |
+| :-- | :--- | :--- | :--- |
+| 1 | **環境とCLIの絶対作法** | WSL2, CLI操作, パスの概念, Volta | 黒い画面で迷子にならない |
+| 2 | **npmとWebの仕組み** | package.json, HTTP(Req/Res) | 道具の管理とWebの会話を理解 |
+| 3 | **Git/GitHub & Deploy** | Git基本, Vercelへの即デプロイ | 自分のコードを世界に公開する |
+| 4 | **Git(2) & TS基礎** | Branch/Merge, Vite+TSでDOM操作 | チーム開発の基礎とプログラム操作 |
+
+---
+
+## 🗓️ 2ヶ月目：モダン開発の「型」を身につける
+**テーマ：ReactとTypeScriptで「壊れにくい」UIを作る**
+
+| 回 | テーマ | 内容 | ゴール |
+| :-- | :--- | :--- | :--- |
+| 5 | **React & 状態管理** | コンポーネント指向, `useState` | 画面の「状態」を制御できる |
+| 6 | **UI/UXとshadcn/ui** | Tailwind CSS, shadcn/ui活用 | プロ並みのUIを爆速で組む |
+| 7 | **型安全とバリデーション** | TS Interface, Zodバリデーション | 型エラーを味方につける |
+| 8 | **AI駆動開発 & テスト** | Antigravity(AI)活用, Vitest | AIの出力をテストで検証できる |
+
+---
+
+## 🗓️ 3ヶ月目：フルスタック・プロダクトを完成させる
+**テーマ：Next.jsとDBを繋ぎ、サービスをリリースする**
+
+| 回 | テーマ | 内容 | ゴール |
+| :-- | :--- | :--- | :--- |
+| 9 | **Next.js App Router** | App Router, Server/Client Component | 実務レベルのフレームワーク操作 |
+| 10 | **API概念 & Mock Data** | APIとは?, Mockデータ表示, fetch | データの「受け渡し」をマスター |
+| 11 | **DB連携(Supabase)** | Supabase接続, DrizzleでのCRUD | データを永続化（保存）できる |
+| 12 | **プロダクト発表！** | 最終デプロイ, 保守性確認, デモ | 自分のプロダクトを世に出す！ |
+
+---
+
+## 💡 学習の進め方
+
+<Steps>
+1. **講義に参加（週1回/2時間）**
+   スライドを見ながら「概念」を理解しよう。
+2. **AIとペアプロで宿題**
+   わからないことはGeminiやAntigravityにどんどん質問！
+3. **GitHubにPush**
+   自分の成長をコードの履歴として残していこう。
+</Steps>
