@@ -1,3 +1,10 @@
+これはB型就労継続支援事業所、ノマドLaB専用のオリジナル学習コンテンツです。
+AI駆動でのプログラミングを前提に、基本的な用語や仕組みを理解したうえで開発ができるよう
+基礎知識を重点的に学べるようにコンテンツを企画しました。
+
+本コンテンツで用いるプログラミング言語は主にTypescriptですが
+一部HTMLやTailwind CSSを含みます。
+
 # Starlight Starter Kit: Basics
 
 [![Built with Starlight](https://astro.badg.es/v2/built-with-starlight/tiny.svg)](https://starlight.astro.build)
