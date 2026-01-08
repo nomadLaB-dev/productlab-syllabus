@@ -1,0 +1,28 @@
+---
+import { Aside } from "@astrojs/starlight/components";
+
+interface Props {
+    type?: "note" | "tip" | "caution" | "danger" | "info" | "warning";
+    emoji?: string;
+    title?: string;
+}
+
+const { type = "note", emoji, title } = Astro.props;
+
+const typeMap: Record<string, string> = {
+    info: "note",
+    warning: "caution",
+    error: "danger",
+    success: "tip",
+};
+
+const asideType = (typeMap[type] || type) as
+    | "note"
+    | "tip"
+    | "caution"
+    | "danger";
+---
+
+<Aside type={asideType} title={title}>
+    <slot />
+</Aside>
